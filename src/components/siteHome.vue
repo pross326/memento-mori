@@ -2,51 +2,43 @@
   <v-container class="grey darken-4 fill-height" fluid>
     <v-row class="ma-8">
       <v-col cols="3">
-        <v-card class="d-flex align-center rounded-lg flex-column pa-1">
-          <v-card-title class="text-h4"> Choose your birthday. </v-card-title>
-          <v-date-picker
-            full-width
-            @input="picker"
-            v-model="picker"
-          ></v-date-picker>
-        </v-card>
+          <v-card class="d-flex align-center rounded-lg flex-column pa-1">
+            <v-card-title class="text-h4"> Choose your birthday. </v-card-title>
+            <v-date-picker full-width @input="picker" v-model="picker"></v-date-picker>
+          </v-card>
         <v-card class="d-flex align-center rounded-lg flex-column pa-1 mt-5">
           <v-card-title class="text-h4"> Choose your lifespan. </v-card-title>
+          <v-card-subtitle> (80 Default) </v-card-subtitle>
           <v-card-text>
-            <v-slider
-              v-model="value"
-              step="10"
-              min="60"
-              thumb-label
-              ticks
-            ></v-slider>
-            <v-card-subtitle class="text-h6 d-flex justify-center"
-              >{{ this.value }} Years</v-card-subtitle
-            >
+            <v-slider v-model="value" step="10" min="60" thumb-label ticks></v-slider>
+            <v-card-subtitle class="text-h6 d-flex justify-center">{{ this.value }} Years</v-card-subtitle>
           </v-card-text>
         </v-card>
       </v-col>
       <v-col cols="6">
-        <v-card class="fill-height rounded-lg"> testing </v-card>
+        <v-card height="73.5vh" class="rounded-lg pa-5 overflow-y-auto">
+          <v-icon small :key="n" v-for="n in weekCalculator">mdi-checkbox-blank
+          </v-icon>
+          <v-icon small :key="n" v-for="n in weeksRemaining">mdi-checkbox-blank-outline
+          </v-icon>
+        </v-card>
       </v-col>
       <v-col cols="3">
         <v-card class="rounded-lg">
-          <v-card-title class="text-h5">Age: {{ ageCalculator }}</v-card-title>
+          <v-card-title class="text-h6 text-wrap rt-cards">Age: {{ ageCalculator }}</v-card-title>
         </v-card>
         <v-card class="rounded-lg mt-5 mb-5">
-          <v-card-title class="text-h5"
-            >Age in weeks: You have lived {{ weekCalculator }} weeks</v-card-title
-          >
+          <v-card-title class="text-h6 rt-cards">Age in weeks: You have lived {{ weekCalculator }} weeks.</v-card-title>
         </v-card>
         <v-card class="rounded-lg mt-5 mb-5">
-          <v-card-title class="text-h5"
-            >Predicted Lifespan: {{ this.value }} Years</v-card-title
-          >
+          <v-card-title class="text-h5 rt-cards">Predicted Lifespan: {{ this.value }} Years</v-card-title>
         </v-card>
         <v-card class="rounded-lg">
-          <v-card-title class="text-h5"
-            >Weeks Remaining: {{ weeksRemaining }} weeks</v-card-title
-          >
+          <v-card-title class="text-h5 rt-cards">Weeks Remaining: {{ weeksRemaining }} weeks</v-card-title>
+        </v-card>
+        <v-card>
+          <v-card-title class="text-h5 rt-cards mt-5">You have already lived {{ getPercentage }}% of your life.
+          </v-card-title>
         </v-card>
       </v-col>
     </v-row>
@@ -132,9 +124,27 @@ export default {
       }
       return Math.floor(this.value * 52.1775 - this.weekCalculator);
     },
+    getPercentage() {
+      let today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
+        .toISOString()
+        .substr(0, 10);
+      if (this.picker == today) {
+        return "___";
+      } else {
+        let weeksLived = this.weekCalculator;
+        let totalLife = this.value * 52.1775;
+        return Math.floor((weeksLived / totalLife) * 100)
+      }
+    }
   },
-  methods: {},
+  methods: {
+  }
 };
 </script>
 
-<style></style>
+<style>
+.rt-cards {
+  word-break: normal;
+  max-width: 100%;
+}
+</style>
