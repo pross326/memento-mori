@@ -2,21 +2,21 @@
   <v-app>
     <site-header/>
     <v-main>
-    <siteHome/>
+    <switcher-component/>
     </v-main>
   </v-app>
 </template>
 
 <script>
 import SiteHeader from './components/siteHeader.vue';
-import siteHome from './components/siteHome.vue'
+import SwitcherComponent from './components/switcherComponent.vue';
 
 export default {
   name: 'App',
 
   components: {
-    siteHome,
-    SiteHeader
+    SiteHeader,
+    SwitcherComponent
   },
 
   data: () => ({
