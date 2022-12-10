@@ -32,7 +32,7 @@
                 </v-row>
               </v-card>
               <div class="d-flex justify-center">
-                <v-btn color="primary" @click="e1 = 2"> Continue </v-btn>
+                <v-btn color="primary" @click="e1 = 2; emitEvent()"> Continue </v-btn>
               </div>
             </v-stepper-content>
             <v-stepper-content step="2">
@@ -94,9 +94,9 @@ export default {
   }),
   props: ["switch-component"],
   methods: {
-    // emitEvent () {
-    //   this.$emit('pass-data', {picker: this.picker, value: this.value})
-    // },
+    emitEvent () {
+      this.$emit('pass-data', this.picker)
+    },
   },
 };
 </script>

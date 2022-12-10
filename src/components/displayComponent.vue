@@ -137,6 +137,11 @@ export default {
     },
   },
   props: ["switch-component"],
+  methods: {
+    handleEvent(data) {
+      return this.$set(this.picker, data.picker);
+    }
+  }
 };
 </script>
 

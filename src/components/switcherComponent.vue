@@ -4,6 +4,8 @@
       <component
         :is="currentComponent"
         :switch-component="switchComponent"
+        @pass-data="handleEvent($event)"
+        :picker="this.picker"
       ></component>
     </transition>
   </div>
@@ -27,6 +29,7 @@ export default {
           ? "displayComponent"
           : "enterData";
     },
+    
   },
   components: { displayComponent, enterData },
 };
