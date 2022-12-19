@@ -1,5 +1,5 @@
 <template>
-  <v-container class="grey darken-4" fluid>
+  <v-container class="grey darken-4" fluid height="fill">
     <v-row class="ma-1">
       <v-spacer></v-spacer>
       <v-col cols="10">
@@ -26,7 +26,7 @@
                     <v-date-picker
                       class="d-flex justify-center rounded-lg mb-10 col-md-6 col-xl-8"
                       @input="picker"
-                      v-model="picker"
+                      v-model="formData.birthDate"
                     ></v-date-picker>
                   </v-col>
                 </v-row>
@@ -46,11 +46,11 @@
                   <v-col cols="8" class="justify-center mb-10">
                     <v-card elevation="5">
                       <v-card-title class="text-h2 d-flex justify-center">
-                        {{ this.value }} Years
+                        {{ formData.lifeExpectancy }} Years
                       </v-card-title>
                       <v-card-text>
                         <v-slider
-                          v-model="value"
+                          v-model="formData.lifeExpectancy"
                           height="150"
                           step="10"
                           min="60"
@@ -68,7 +68,7 @@
                 </v-row>
               </v-card>
               <div class="d-flex justify-center">
-                <v-btn color="primary" class="ma-5" @click="switchComponent()">
+                <v-btn color="primary" class="ma-5" @click="switchComponent(); $emit('handleSubmit', formData)">
                   Continue
                 </v-btn>
                 <v-btn text class="ma-5" @click="e1 = 1"> Go Back </v-btn>
@@ -85,19 +85,19 @@
 <script>
 export default {
   name: "enterData",
-  data: () => ({
+  data: () => {
+    return {
     picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
       .toISOString()
       .substr(0, 10),
-    value: 80,
     e1: 1,
-  }),
+    formData: {
+      birthDate: '',
+      lifeExpectancy: 80,
+    }
+  }},
   props: ["switch-component"],
-  methods: {
-    emitEvent () {
-      this.$emit('pass-data', this.picker)
-    },
-  },
+
 };
 </script>
 

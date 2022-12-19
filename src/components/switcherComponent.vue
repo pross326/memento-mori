@@ -2,10 +2,11 @@
   <div>
     <transition name="fade">
       <component
+      @handleSubmit="getFormData"
         :is="currentComponent"
         :switch-component="switchComponent"
-        @pass-data="handleEvent($event)"
-        :picker="this.picker"
+        :birthDate="birthDate"
+        :lifeExpectancy="lifeExpectancy"
       ></component>
     </transition>
   </div>
@@ -20,6 +21,8 @@ export default {
   data() {
     return {
       currentComponent: "enterData",
+      birthDate: '',
+      lifeExpectancy: '',
     };
   },
   methods: {
@@ -29,6 +32,10 @@ export default {
           ? "displayComponent"
           : "enterData";
     },
+    getFormData(formData){
+      this.birthDate = formData.birthDate
+      this.lifeExpectancy = formData.lifeExpectancy
+    }
     
   },
   components: { displayComponent, enterData },

@@ -1,8 +1,8 @@
 <template>
   <v-container class="grey darken-4 fill-height" fluid>
     <v-row>
-      <v-col cols="6">
-        <v-card height="73.5vh" class="rounded-lg pa-5 overflow-y-auto">
+      <v-col cols="9">
+        <v-card height="fill" class="rounded-lg pa-5 overflow-y-auto">
           <v-icon small :key="n" v-for="n in weekCalculator"
             >mdi-checkbox-blank
           </v-icon>
@@ -25,7 +25,7 @@
         </v-card>
         <v-card class="rounded-lg mt-5 mb-5">
           <v-card-title class="text-h5 rt-cards"
-            >Predicted Lifespan: {{ this.value }} Years</v-card-title
+            >Predicted Lifespan: {{ this.lifeExpectancy }} Years</v-card-title
           >
         </v-card>
         <v-card class="rounded-lg">
@@ -38,7 +38,7 @@
             >You have already lived {{ getPercentage }}% of your life.
           </v-card-title>
         </v-card>
-        <v-btn @click="switchComponent()">Try Again</v-btn>
+        <v-btn class="justify-center py-4" @click="switchComponent()">Try Again</v-btn>
       </v-col>
     </v-row>
   </v-container>
@@ -48,10 +48,6 @@
 export default {
   name: "displayComponent",
   data: () => ({
-    picker: new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
-      .toISOString()
-      .substr(0, 10),
-    value: 80,
   }),
   computed: {
     ageCalculator() {
@@ -61,13 +57,13 @@ export default {
       let todayDay = Number(today.substr(8, 9));
       let todayMonth = Number(today.substr(5, 2));
       let todayYear = Number(today.substr(0, 4));
-      let birthDay = Number(this.picker.substr(8, 9));
-      let birthMonth = Number(this.picker.substr(5, 2));
-      let birthYear = Number(this.picker.substr(0, 4));
+      let birthDay = Number(this.birthDate.substr(8, 9));
+      let birthMonth = Number(this.birthDate.substr(5, 2));
+      let birthYear = Number(this.birthDate.substr(0, 4));
       let years;
       let months;
       let days;
-      if (this.picker == today) {
+      if (this.birthDate == today) {
         return "Enter your birthday to calculate your age.";
       }
       if (
@@ -100,10 +96,10 @@ export default {
       let todayDay = Number(today.substr(8, 9));
       let todayMonth = Number(today.substr(5, 2));
       let todayYear = Number(today.substr(0, 4));
-      let birthDay = Number(this.picker.substr(8, 9));
-      let birthMonth = Number(this.picker.substr(5, 2));
-      let birthYear = Number(this.picker.substr(0, 4));
-      if (this.picker == today) {
+      let birthDay = Number(this.birthDate.substr(8, 9));
+      let birthMonth = Number(this.birthDate.substr(5, 2));
+      let birthYear = Number(this.birthDate.substr(0, 4));
+      if (this.birthDate == today) {
         return "___";
       } else {
         dt1 = new Date(birthYear, birthMonth, birthDay);
@@ -118,30 +114,25 @@ export default {
       let today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
         .substr(0, 10);
-      if (this.picker == today) {
+      if (this.birthDate == today) {
         return "___";
       }
-      return Math.floor(this.value * 52.1775 - this.weekCalculator);
+      return Math.floor(this.lifeExpectancy * 52.1775 - this.weekCalculator);
     },
     getPercentage() {
       let today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
         .toISOString()
         .substr(0, 10);
-      if (this.picker == today) {
+      if (this.birthDate == today) {
         return "___";
       } else {
         let weeksLived = this.weekCalculator;
-        let totalLife = this.value * 52.1775;
+        let totalLife = this.lifeExpectancy * 52.1775;
         return Math.floor((weeksLived / totalLife) * 100);
       }
     },
   },
-  props: ["switch-component"],
-  methods: {
-    handleEvent(data) {
-      return this.$set(this.picker, data.picker);
-    }
-  }
+  props: ["switch-component", 'birthDate', 'lifeExpectancy'],
 };
 </script>
 
@@ -150,4 +141,6 @@ export default {
   word-break: normal;
   max-width: 100%;
 }
+
+
 </style>
