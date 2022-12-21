@@ -1,4 +1,17 @@
 <template>
+  <div>
+    <v-row class="justify-center pt-5 pb-3 grey darken-4">
+      <v-card class="text-center justify-center d-flex align-center flex-column col-md-8">
+      <v-card-title class="text-h4">
+        Living a Life of Purpose and Gratitude
+      </v-card-title>
+      <v-card-text>
+        Memento mori is a Latin phrase that means "remember that you have to die." It is a reminder to embrace the finite nature of life and to make the most of every moment.
+Memento mori serves as a reminder that death is inevitable, and that we should not get too attached to material possessions or earthly success. Instead, we should focus on what truly matters in life, such as relationships, personal growth, and making a positive impact on the world.
+By embracing memento mori, we can live our lives with a sense of purpose, gratitude, and resilience, and make the most of every day.
+      </v-card-text>
+    </v-card>
+    </v-row>
   <v-container class="grey darken-4" fluid height="fill">
     <v-row class="ma-1">
       <v-spacer></v-spacer>
@@ -80,6 +93,7 @@
       <v-spacer></v-spacer>
     </v-row>
   </v-container>
+  </div>
 </template>
 
 <script>

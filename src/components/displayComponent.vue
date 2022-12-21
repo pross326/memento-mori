@@ -1,54 +1,39 @@
 <template>
-  <v-container class="grey darken-4 fill-height" fluid>
-    <v-row>
-      <v-col cols="9">
-        <v-card height="fill" class="rounded-lg pa-5 overflow-y-auto">
-          <v-icon small :key="n" v-for="n in weekCalculator"
-            >mdi-checkbox-blank
-          </v-icon>
-          <v-icon small :key="n" v-for="n in weeksRemaining"
-            >mdi-checkbox-blank-outline
-          </v-icon>
-        </v-card>
-      </v-col>
-      <v-col cols="3">
-        <v-card class="rounded-lg">
-          <v-card-title class="text-h6 text-wrap rt-cards"
-            >Age: {{ ageCalculator }}</v-card-title
-          >
-        </v-card>
-        <v-card class="rounded-lg mt-5 mb-5">
-          <v-card-title class="text-h6 rt-cards"
-            >Age in weeks: You have lived
-            {{ weekCalculator }} weeks.</v-card-title
-          >
-        </v-card>
-        <v-card class="rounded-lg mt-5 mb-5">
-          <v-card-title class="text-h5 rt-cards"
-            >Predicted Lifespan: {{ this.lifeExpectancy }} Years</v-card-title
-          >
-        </v-card>
-        <v-card class="rounded-lg">
-          <v-card-title class="text-h5 rt-cards"
-            >Weeks Remaining: {{ weeksRemaining }} weeks</v-card-title
-          >
-        </v-card>
-        <v-card>
-          <v-card-title class="text-h5 rt-cards mt-5"
-            >You have already lived {{ getPercentage }}% of your life.
-          </v-card-title>
-        </v-card>
-        <v-btn class="justify-center py-4" @click="switchComponent()">Try Again</v-btn>
-      </v-col>
-    </v-row>
-  </v-container>
+  <div>
+    
+    <window-component
+      :weekCalculator="weekCalculator"
+      :weeksRemaining="weeksRemaining"
+      :lifeExpectancy="lifeExpectancy"
+      :ageCalculator="ageCalculator"
+      :getPercentage="getPercentage"
+    />
+   
+    <v-container class="grey darken-4 fill-height" fluid>
+      <v-row>
+        <v-spacer></v-spacer>
+        <v-col class="col-md-8 col-lg-10">
+          <v-card class="rounded-lg pa-4 max-char">
+            <v-icon x-small :key="n" v-for="n in weekCalculator"
+              >mdi-checkbox-blank
+            </v-icon>
+            <v-icon x-small :key="n" v-for="n in weeksRemaining"
+              >mdi-checkbox-blank-outline
+            </v-icon>
+          </v-card>
+        </v-col>
+        <v-spacer></v-spacer>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script>
+import windowComponent from "./windowComponent.vue";
+
 export default {
   name: "displayComponent",
-  data: () => ({
-  }),
+  data: () => ({}),
   computed: {
     ageCalculator() {
       let today = new Date(Date.now() - new Date().getTimezoneOffset() * 60000)
@@ -86,7 +71,7 @@ export default {
       } else {
         days = todayDay - birthDay + monthDays[birthMonth];
       }
-      return `You are ${years} years, ${months} months, and ${days} days old`;
+      return `${years} years, ${months} months, and ${days} days`;
     },
 
     weekCalculator(dt1, dt2) {
@@ -132,7 +117,8 @@ export default {
       }
     },
   },
-  props: ["switch-component", 'birthDate', 'lifeExpectancy'],
+  props: ["switch-component", "birthDate", "lifeExpectancy"],
+  components: { windowComponent },
 };
 </script>
 
@@ -142,5 +128,9 @@ export default {
   max-width: 100%;
 }
 
-
+.max-char {
+  max-width: 108;
+}
 </style>
+
+<!--52:36 64:45-->
