@@ -10,6 +10,15 @@
     />
    
     <v-container class="grey darken-4 fill-height" fluid>
+      <v-card class="col-md-10 mx-auto my-4">
+      <v-card-text id="intro-text" class="text-center">
+        The graphic below represents a user's life expectancy in weeks, using filled boxes to represent the weeks 
+        that have already passed and empty boxes to represent the weeks that are still to come. By looking at the number of filled 
+        and empty boxes, we can see how much time has already passed and how much is still ahead of us, based on our life expectancy. 
+        This visualization serves as a reminder to make the most of every day, as we never know when our time will run out. This allows us to visualize the concept of memento mori, 
+        a reminder to live each day as if it were our last.
+      </v-card-text>
+    </v-card>
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
@@ -130,6 +139,12 @@ export default {
 
 .max-char {
   max-width: 108;
+}
+
+#intro-text{
+  font-size: larger;
+  font-weight: 600;
+  line-height: 1.5em;
 }
 </style>
 
