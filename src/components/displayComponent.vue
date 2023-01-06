@@ -33,6 +33,9 @@
         </v-col>
         <v-spacer></v-spacer>
       </v-row>
+      <v-btn class="mx-auto my-5" @click="switchComponent()">
+        Try Again
+      </v-btn>
     </v-container>
   </div>
 </template>
@@ -132,6 +135,10 @@ export default {
 </script>
 
 <style>
+
+* {
+  font-family: 'Merriweather', serif;
+}
 .rt-cards {
   word-break: normal;
   max-width: 100%;
@@ -142,9 +149,10 @@ export default {
 }
 
 #intro-text{
-  font-size: larger;
+  font-size: large;
   font-weight: 600;
-  line-height: 1.5em;
+  font: 'Merriweather', serif;
+  line-height: 1.8em;
 }
 </style>
 
