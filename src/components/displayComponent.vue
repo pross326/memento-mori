@@ -1,34 +1,28 @@
 <template>
   <div>
-    
-    <window-component
-      :weekCalculator="weekCalculator"
-      :weeksRemaining="weeksRemaining"
-      :lifeExpectancy="lifeExpectancy"
-      :ageCalculator="ageCalculator"
-      :getPercentage="getPercentage"
-    />
-   
+
+    <window-component :weekCalculator="weekCalculator" :weeksRemaining="weeksRemaining" :lifeExpectancy="lifeExpectancy"
+      :ageCalculator="ageCalculator" :getPercentage="getPercentage" />
+
     <v-container class="grey darken-4 fill-height" fluid>
       <v-card class="col-md-10 mx-auto my-4">
-      <v-card-text id="intro-text" class="text-center">
-        The graphic below represents a user's life expectancy in weeks, using filled boxes to represent the weeks 
-        that have already passed and empty boxes to represent the weeks that are still to come. By looking at the number of filled 
-        and empty boxes, we can see how much time has already passed and how much is still ahead of us, based on our life expectancy. 
-        This visualization serves as a reminder to make the most of every day, as we never know when our time will run out. This allows us to visualize the concept of memento mori, 
-        a reminder to live each day as if it were our last.
-      </v-card-text>
-    </v-card>
+        <v-card-text id="intro-text" class="text-center">
+          The graphic below represents a user's life expectancy in weeks, using filled boxes to represent the weeks
+          that have already passed and empty boxes to represent the weeks that are still to come. By looking at the
+          number of filled
+          and empty boxes, we can see how much time has already passed and how much is still ahead of us, based on our
+          life expectancy.
+          This visualization serves as a reminder to make the most of every day, as we never know when our time will run
+          out. This allows us to visualize the concept of memento mori,
+          a reminder to live each day as if it were our last.
+        </v-card-text>
+      </v-card>
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
           <v-card class="rounded-lg pa-4 max-char">
-            <v-icon x-small :key="n" v-for="n in weekCalculator"
-              >mdi-checkbox-blank
-            </v-icon>
-            <v-icon x-small :key="n" v-for="n in weeksRemaining"
-              >mdi-checkbox-blank-outline
-            </v-icon>
+            <img src="../assets/filled-box-icon.svg" :key="n" v-for="n in weekCalculator"/>
+            <img src="../assets/box-icon.svg" :key="n" v-for="n in weeksRemaining"/>
           </v-card>
         </v-col>
         <v-spacer></v-spacer>
@@ -135,10 +129,10 @@ export default {
 </script>
 
 <style>
-
 * {
   font-family: 'Merriweather', serif;
 }
+
 .rt-cards {
   word-break: normal;
   max-width: 100%;
@@ -148,7 +142,7 @@ export default {
   max-width: 108;
 }
 
-#intro-text{
+#intro-text {
   font-size: large;
   font-weight: 600;
   font: 'Merriweather', serif;
