@@ -20,9 +20,9 @@
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
-          <v-card class="rounded-lg pa-4 max-char">
-            <img src="../assets/filled-box-icon.svg" :key="n" v-for="n in weekCalculator"/>
-            <img src="../assets/box-icon.svg" :key="n" v-for="n in weeksRemaining"/>
+          <v-card id="shareableCard" class="rounded-lg pa-4 max-char">
+            <img src="../assets/filled-box.svg" :key="n" v-for="n in weekCalculator"/>
+            <img src="../assets/empty-box.svg" :key="n" v-for="n in weeksRemaining"/>
           </v-card>
         </v-col>
         <v-spacer></v-spacer>
@@ -124,6 +124,15 @@ export default {
     },
   },
   props: ["switch-component", "birthDate", "lifeExpectancy"],
+  methods: {
+    captureImage(){
+      let card = document.querySelector('#shareableCard');
+      html2canvas(card).then(canvas => {
+        document.body.appendChild(canvas)
+      })
+    }
+
+  },
   components: { windowComponent },
 };
 </script>
