@@ -18,6 +18,9 @@
         </v-card-text>
       </v-card>
       <v-row>
+        <ChartComponent/>
+      </v-row>
+      <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
           <v-card id="shareableCard" class="rounded-lg pa-4 max-char">
@@ -36,6 +39,7 @@
 
 <script>
 import windowComponent from "./windowComponent.vue";
+import ChartComponent from "./chartComponent.vue";
 
 export default {
   name: "displayComponent",
@@ -125,15 +129,8 @@ export default {
   },
   props: ["switch-component", "birthDate", "lifeExpectancy"],
   methods: {
-    captureImage(){
-      let card = document.querySelector('#shareableCard');
-      html2canvas(card).then(canvas => {
-        document.body.appendChild(canvas)
-      })
-    }
-
   },
-  components: { windowComponent },
+  components: { windowComponent, ChartComponent },
 };
 </script>
 
