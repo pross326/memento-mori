@@ -1,7 +1,7 @@
 <template>
   <v-col class="col-md-10">
   <v-card class="rounded-lg" tile>
-    <v-window v-model="currentSlide" vertical dark>
+    <v-window class="grey" v-model="currentSlide" vertical dark>
       <v-window-item v-for="window in windowItems" :key="window">
         <v-card
           color="grey"

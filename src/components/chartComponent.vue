@@ -1,6 +1,11 @@
 <template>
   <div>
     <v-card>
+      <v-card class="grey darken-3 d-flex justify-center" >
+        <v-card-title class="white--text" style="font-size: 30px !important;">
+          My Life
+        </v-card-title>
+      </v-card>
       <apexcharts
         id="shareableCard"
         class="pt-5"
@@ -11,7 +16,7 @@
         :series="series"
       ></apexcharts>
       <div class="d-flex justify-end">
-        <v-btn color="success" class="ma-4" @click="downloadCard()">Share</v-btn>
+        <v-btn color="#C68F55" class="ma-4" @click="downloadCard()">Share</v-btn>
       </div>
     </v-card>
   </div>

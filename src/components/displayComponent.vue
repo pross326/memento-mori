@@ -15,24 +15,52 @@
           :weeksRemaining="weeksRemaining"
           class="col-md-4"
         />
-        <v-card class="col-md-8 ma-3 mx-auto d-flex flex-column align-center">
-          <v-card-title class="ma-3">
-            The Memento Mori Calendar
-          </v-card-title>
-          <v-card-text id="intro-text" class="text-center">
-            The image below is a visual representation of a user's life expectancy in
-            weeks, using filled boxes to represent the weeks that have already
-            passed and empty boxes to represent the weeks that are still to
-            come. It serves as a reminder to make the most of every day, as we
-            never know when our time will run out and is a reminder to live each
-            day as if it were our last.
+        <v-card
+          color="grey lighten-2"
+          class="calendar-card col-md-8 ma-3 pa-0 mx-auto d-flex flex-column align-center"
+        >
+          <v-card
+            class="calendar-card"
+            color="grey darken-3 justify-center d-flex"
+            width="100%"
+          >
+            <v-card-title
+              class="text-center white--text"
+              style="font-size: 30px !important"
+            >
+              About
+            </v-card-title>
+          </v-card>
+          <v-card-text
+            id="intro-text"
+            class="text-center d-flex align-center mt-9"
+            style="font-size: 20px !important"
+          >
+            The image below is a visual representation of your life
+            expectancy in weeks, using filled boxes to represent the weeks that
+            have already passed and empty boxes to represent the weeks that are
+            still to come. It serves as a reminder to make the most of every
+            day, as we never know when our time will run out and is a reminder
+            to live each day as if it were our last.
           </v-card-text>
         </v-card>
       </v-section>
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
-          <v-card id="shareableCard" class="rounded-lg pa-4 max-char">
+          <v-card
+            class="calendar-card"
+            color="grey darken-3 justify-center d-flex"
+            width="100%"
+          >
+            <v-card-title
+              class="text-center white--text"
+              style="font-size: 30px !important"
+            >
+              The Memento Mori Calendar
+            </v-card-title>
+          </v-card>
+          <v-card color="grey lighten-2" id="shareableCard" class="pa-2">
             <img
               src="../assets/filled-box.svg"
               :key="n"
@@ -158,16 +186,16 @@ export default {
   word-break: normal;
   max-width: 100%;
 }
-
-.max-char {
-  max-width: 108;
-}
-
 #intro-text {
   font-size: large;
   font-weight: 600;
   font: "Merriweather", serif;
-  line-height: 1.8em;
+  line-height: 1.9em;
+}
+
+.calendar-card {
+  padding: 0px;
+  border-radius: 16px 16px 0px 0px;
 }
 </style>
 

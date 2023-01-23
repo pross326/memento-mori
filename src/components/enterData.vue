@@ -59,7 +59,7 @@
                 ></v-date-picker>
               </v-card>
               <div class="d-flex justify-center">
-                <v-btn :disabled="dateIsValid" color="#439d69" @click="e1 = 2">
+                <v-btn :disabled="dateIsValid" color="#C68F55" @click="e1 = 2">
                   Continue
                 </v-btn>
               </div>
@@ -111,7 +111,7 @@
               </v-card>
               <div class="d-flex justify-center">
                 <v-btn
-                  color="#439d69"
+                  color="#C68F55"
                   class="ma-5"
                   @click="
                     switchComponent();

@@ -30,4 +30,9 @@ p {
 #email-link a{
   text-decoration: none;
 }
+
+#email-link a:hover{
+  cursor: pointer;
+  color: black!important;
+}
 </style>
