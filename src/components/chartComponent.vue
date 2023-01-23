@@ -3,7 +3,8 @@
     <v-card>
       <apexcharts
         id="shareableCard"
-        width="500"
+        class="pt-5"
+        width="400"
         height="250"
         type="donut"
         :options="chartOptions"

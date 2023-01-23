@@ -1,33 +1,34 @@
 <template>
   <div>
     <v-container class="grey darken-4 fill-height" fluid>
-      <v-section class="d-flex col-md-10 mx-auto py-3 my-3">
-        <ChartComponent
-          :weekCalculator="weekCalculator"
-          :weeksRemaining="weeksRemaining"
-        />
-        <v-card class="col-md-8 mx-auto py-5 d-flex align-center">
-          <v-card-text id="intro-text" class="text-center">
-            The image below represents a user's life expectancy in weeks, using
-            filled boxes to represent the weeks that have already passed and
-            empty boxes to represent the weeks that are still to come. By
-            looking at the number of filled and empty boxes, we can see how much
-            time is still ahead of us based on our life expectancy.<br /><br />
-            This visualization serves as a reminder to make the most of every
-            day, as we never know when our time will run out. This allows us to
-            visualize the concept of memento mori, a reminder to live each day
-            as if it were our last.
-          </v-card-text>
-        </v-card>
-      </v-section>
       <window-component
         :weekCalculator="weekCalculator"
         :weeksRemaining="weeksRemaining"
         :lifeExpectancy="lifeExpectancy"
         :ageCalculator="ageCalculator"
         :getPercentage="getPercentage"
-        class="mx-auto my-4"
+        class="mx-auto"
       />
+      <v-section class="d-flex col-md-10 mx-auto mb-3">
+        <ChartComponent
+          :weekCalculator="weekCalculator"
+          :weeksRemaining="weeksRemaining"
+          class="col-md-4"
+        />
+        <v-card class="col-md-8 ma-3 mx-auto d-flex flex-column align-center">
+          <v-card-title class="ma-3">
+            The Memento Mori Calendar
+          </v-card-title>
+          <v-card-text id="intro-text" class="text-center">
+            The image below is a visual representation of a user's life expectancy in
+            weeks, using filled boxes to represent the weeks that have already
+            passed and empty boxes to represent the weeks that are still to
+            come. It serves as a reminder to make the most of every day, as we
+            never know when our time will run out and is a reminder to live each
+            day as if it were our last.
+          </v-card-text>
+        </v-card>
+      </v-section>
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">

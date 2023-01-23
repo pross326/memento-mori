@@ -1,15 +1,15 @@
 <template>
   <v-col class="col-md-10">
-  <v-card flat tile>
+  <v-card class="rounded-lg" tile>
     <v-window v-model="currentSlide" vertical dark>
       <v-window-item v-for="window in windowItems" :key="window">
         <v-card
           color="grey"
-          height="200"
-          class="align-center d-flex flex-column pt-2 window-background text-center"
+          height="250"
+          class="align-center d-flex flex-column pt-3 window-background text-center"
           v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
         >
-          <h1 class="align-center d-flex flex-column pt-5" style="color: white; font-size:larger">
+          <h1 class="align-center d-flex flex-column mt-5" style="color: white; font-size:larger">
             {{ window.title }}
           </h1>
           <v-card width="30%" class="pa-4 mt-4">
@@ -20,7 +20,7 @@
       <v-window-item>
         <v-card
           color="grey"
-          height="200"
+          height="250"
           class="align-center d-flex justify-space-around pt-2 window-background"
           v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
         >
