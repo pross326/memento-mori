@@ -1,38 +1,52 @@
 <template>
   <div>
-
-    <window-component :weekCalculator="weekCalculator" :weeksRemaining="weeksRemaining" :lifeExpectancy="lifeExpectancy"
-      :ageCalculator="ageCalculator" :getPercentage="getPercentage" />
-
     <v-container class="grey darken-4 fill-height" fluid>
       <v-section class="d-flex col-md-10 mx-auto py-3 my-3">
-        <ChartComponent :weekCalculator="weekCalculator" :weeksRemaining="weeksRemaining"/>
-      <v-card class="col-md-8 mx-auto py-5 d-flex align-center">
-        <v-card-text id="intro-text" class="text-center">
-          The image below represents a user's life expectancy in weeks, using filled boxes to represent the weeks
-          that have already passed and empty boxes to represent the weeks that are still to come. By looking at the
-          number of filled
-          and empty boxes, we can see how much time is still ahead of us based on our
-          life expectancy.<br /><br />
-          This visualization serves as a reminder to make the most of every day, as we never know when our time will run
-          out. This allows us to visualize the concept of memento mori,
-          a reminder to live each day as if it were our last.
-        </v-card-text>
-      </v-card>
-    </v-section>
+        <ChartComponent
+          :weekCalculator="weekCalculator"
+          :weeksRemaining="weeksRemaining"
+        />
+        <v-card class="col-md-8 mx-auto py-5 d-flex align-center">
+          <v-card-text id="intro-text" class="text-center">
+            The image below represents a user's life expectancy in weeks, using
+            filled boxes to represent the weeks that have already passed and
+            empty boxes to represent the weeks that are still to come. By
+            looking at the number of filled and empty boxes, we can see how much
+            time is still ahead of us based on our life expectancy.<br /><br />
+            This visualization serves as a reminder to make the most of every
+            day, as we never know when our time will run out. This allows us to
+            visualize the concept of memento mori, a reminder to live each day
+            as if it were our last.
+          </v-card-text>
+        </v-card>
+      </v-section>
+      <window-component
+        :weekCalculator="weekCalculator"
+        :weeksRemaining="weeksRemaining"
+        :lifeExpectancy="lifeExpectancy"
+        :ageCalculator="ageCalculator"
+        :getPercentage="getPercentage"
+        class="mx-auto my-4"
+      />
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
           <v-card id="shareableCard" class="rounded-lg pa-4 max-char">
-            <img src="../assets/filled-box.svg" :key="n" v-for="n in weekCalculator"/>
-            <img src="../assets/empty-box.svg" :key="n" v-for="n in weeksRemaining"/>
+            <img
+              src="../assets/filled-box.svg"
+              :key="n"
+              v-for="n in weekCalculator"
+            />
+            <img
+              src="../assets/empty-box.svg"
+              :key="n"
+              v-for="n in weeksRemaining"
+            />
           </v-card>
         </v-col>
         <v-spacer></v-spacer>
       </v-row>
-      <v-btn class="mx-auto my-5" @click="switchComponent()">
-        Try Again
-      </v-btn>
+      <v-btn class="mx-auto my-5" @click="switchComponent()"> Try Again </v-btn>
     </v-container>
   </div>
 </template>
@@ -128,15 +142,15 @@ export default {
     },
   },
   props: ["switch-component", "birthDate", "lifeExpectancy"],
-  methods: {
-  },
+  methods: {},
   components: { windowComponent, ChartComponent },
 };
 </script>
 
 <style>
-*{
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+* {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 
 .rt-cards {
@@ -151,7 +165,7 @@ export default {
 #intro-text {
   font-size: large;
   font-weight: 600;
-  font: 'Merriweather', serif;
+  font: "Merriweather", serif;
   line-height: 1.8em;
 }
 </style>

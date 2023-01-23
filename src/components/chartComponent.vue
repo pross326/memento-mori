@@ -4,7 +4,7 @@
       <apexcharts
         id="shareableCard"
         width="500"
-        height="350"
+        height="250"
         type="donut"
         :options="chartOptions"
         :series="series"

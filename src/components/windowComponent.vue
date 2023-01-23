@@ -1,15 +1,17 @@
 <template>
+  <v-col class="col-md-10">
   <v-card flat tile>
     <v-window v-model="currentSlide" vertical dark>
       <v-window-item v-for="window in windowItems" :key="window">
         <v-card
           color="grey"
           height="200"
-          class="align-center d-flex flex-column pt-2"
+          class="align-center d-flex flex-column pt-2 window-background text-center"
+          v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
         >
-          <h2 class="align-center d-flex flex-column pt-5" style="color: white">
+          <h1 class="align-center d-flex flex-column pt-5" style="color: white; font-size:larger">
             {{ window.title }}
-          </h2>
+          </h1>
           <v-card width="30%" class="pa-4 mt-4">
             <h1 class="align-center d-flex flex-column">{{ window.data }}</h1>
           </v-card>
@@ -19,24 +21,23 @@
         <v-card
           color="grey"
           height="200"
-          class="align-center d-flex justify-space-around pt-2"
+          class="align-center d-flex justify-space-around pt-2 window-background"
+          v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
         >
           <v-card class="summary-card">
             <v-card-subtitle
-              class="align-center d-flex flex-column pt-5 text-center"
-              style="color: white"
+              class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
               You have been alive for
             </v-card-subtitle>
-            <v-card-title class="align-center d-flex flex-column text-center">
+            <v-card-title class="summary-card-title align-center d-flex flex-column text-center">
               {{ this.ageCalculator }}
             </v-card-title>
           </v-card>
 
           <v-card class="summary-card">
             <v-card-subtitle
-              class="align-center d-flex flex-column pt-5 text-center"
-              style="color: white"
+              class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
               That's
             </v-card-subtitle>
@@ -47,8 +48,7 @@
 
           <v-card class="summary-card">
             <v-card-subtitle
-              class="align-center d-flex flex-column pt-5 text-center"
-              style="color: white"
+              class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
               If you were to live {{ this.lifeExpectancy }} years, you'd have
             </v-card-subtitle>
@@ -59,8 +59,7 @@
 
           <v-card class="summary-card">
             <v-card-subtitle
-              class="align-center d-flex flex-column pt-5"
-              style="color: white"
+              class="summary-card-title align-center d-flex flex-column pt-5"
             >
               That means you've already lived
             </v-card-subtitle>
@@ -92,6 +91,7 @@
       </v-btn>
     </v-card-actions>
   </v-card>
+</v-col>
 </template>
 
 <script>
@@ -102,6 +102,7 @@ export default {
       length: 5,
       currentSlide: 0,
       interval: null,
+      backgroundImage: 'https://i.imgur.com/zKFw6sW.png'
     };
   },
   computed: {
@@ -194,4 +195,14 @@ export default {
   height: 10em;
   width: 20em;
 }
+
+.summary-card-title{
+  color: white;
+  font-size: larger;
+}
+
+.window-background{
+  background-size: cover;
+}
+
 </style>

@@ -1,11 +1,10 @@
 <template>
   <div>
-    <v-row class="justify-center pt-5 pb-3 grey darken-4">
+    <v-row class="justify-center grey darken-4">
       <v-card
-        class="col-xs-10 col-sm-10 col-xl-8 justify-center align-center d-flex flex-column text-center ma-2"
+        class="col-xs-10 col-sm-10 col-xl-8 justify-center align-center d-flex flex-column text-center" color="#212121" elevation="0"
       >
-        <v-spacer></v-spacer>
-        <v-card-text class="text-overline">
+        <v-card-text id="enterDataIntro" class="text-overline white--text">
           Enter your birth date and life expectancy below for a visual reminder
           to live each day to the fullest.
         </v-card-text>
@@ -14,53 +13,63 @@
     <v-container class="grey darken-4" fluid height="fill">
       <v-row class="ma-1">
         <v-spacer></v-spacer>
-        <v-stepper v-model="e1" class="col-md-8 col-xs-12">
-          <v-stepper-header>
+        <v-stepper
+          v-model="e1"
+          class="backgroundColor col-md-8 col-xs-12"
+          elevation="0"
+          :style="{ backgroundColor: 'black' }"
+        >
+          <v-stepper-header class="backgroundColor">
             <v-spacer></v-spacer>
-            <v-stepper-step :complete="e1 > 1" step="1">
+            <v-stepper-step color="#212121" class="overline" :complete="e1 > 1" step="1">
               Date of Birth
             </v-stepper-step>
             <v-divider></v-divider>
-            <v-stepper-step :complete="e1 > 2" step="2">
+            <v-stepper-step color="#212121" class="overline" :complete="e1 > 2" step="2">
               Life Expectancy
             </v-stepper-step>
             <v-spacer></v-spacer>
           </v-stepper-header>
           <v-stepper-items>
-            <v-stepper-content step="1" class="align-items">
+            <v-stepper-content step="1" class="align-items backgroundColor">
               <v-card
                 height="fill"
                 color="grey darken-2"
-                class="d-flex flex-column align-center mb-5"
+                elevation="5"
+                class="d-flex flex-column align-center mb-5 enterDataCard"
+                v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
                 <v-card
-                  elevation="4"
+                  elevation="5"
                   class="col-xs-10 col-sm-10 col-xl-5 justify-center align-center d-flex flex-column pa-0 mt-3"
                 >
                   <v-card-title> Enter your birth date. </v-card-title>
                   <v-card-subtitle>
-                    You birth date is used to calculate how many weeks you've
+                    Your birth date is used to calculate how many weeks you've
                     lived.
                   </v-card-subtitle>
                 </v-card>
                 <v-date-picker
-                  elevation="4"
+                  elevation="5"
                   class="d-flex justify-center rounded-lg mb-3 mt-3 col-xs-10 col-sm-10 col-xl-5"
                   @input="picker"
                   v-model="formData.birthDate"
+                  header-color="#212121"
+                  color="#212121"
                 ></v-date-picker>
               </v-card>
               <div class="d-flex justify-center">
-                <v-btn :disabled="dateIsValid" color="primary" @click="e1 = 2">
+                <v-btn :disabled="dateIsValid" color="#439d69" @click="e1 = 2">
                   Continue
                 </v-btn>
               </div>
             </v-stepper-content>
-            <v-stepper-content step="2" class="align-items">
+            <v-stepper-content step="2" class="align-items backgroundColor">
               <v-card
                 height="fill"
                 color="grey darken-2"
-                class="d-flex flex-column align-center mb-5"
+                class="d-flex flex-column align-center mb-5 enterDataCard"
+                v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
                 <v-card
                   elevation="4"
@@ -74,12 +83,14 @@
                   elevation="5"
                   class="col-xs-10 col-sm-10 col-xl-5 justify-center align-center d-flex flex-column pa-0 mt-3 mb-3"
                 >
+                <v-card id="yearsCardTitle" class="ma-2 pb-5" color="#212121">
                   <v-card-title
-                    class="d-flex mt-5 justify-center"
-                    style="font-size: 50px"
+                    class="d-flex mt-4 justify-center white--text"
+                    style="font-size: 40px"
                   >
                     {{ formData.lifeExpectancy }} Years
                   </v-card-title>
+                </v-card>
                   <v-divider></v-divider>
                   <v-card-text>
                     <v-slider
@@ -100,7 +111,7 @@
               </v-card>
               <div class="d-flex justify-center">
                 <v-btn
-                  color="primary"
+                  color="#439d69"
                   class="ma-5"
                   @click="
                     switchComponent();
@@ -133,6 +144,8 @@ export default {
         birthDate: "",
         lifeExpectancy: 80,
       },
+      backgroundImage:
+        "https://i.imgur.com/zKFw6sW.png",
     };
   },
   props: ["switch-component"],
@@ -161,6 +174,24 @@ export default {
 .font-style {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.enterDataCard {
+  background-size: cover;
+}
+
+#enterDataIntro {
+  font-size: 15px !important;
+  color: 212121;
+}
+
+.backgroundColor {
+  background-color: white;
+}
+
+#yearsCardTitle{
+  border-radius: 10px 10px 0px 0px;
+  width: 95%;
 }
 
 .e2-card {
