@@ -5,21 +5,21 @@
       :ageCalculator="ageCalculator" :getPercentage="getPercentage" />
 
     <v-container class="grey darken-4 fill-height" fluid>
-      <v-card class="col-md-10 mx-auto my-4">
+      <v-section class="d-flex col-md-10 mx-auto py-3 my-3">
+        <ChartComponent :weekCalculator="weekCalculator" :weeksRemaining="weeksRemaining"/>
+      <v-card class="col-md-8 mx-auto py-5 d-flex align-center">
         <v-card-text id="intro-text" class="text-center">
-          The graphic below represents a user's life expectancy in weeks, using filled boxes to represent the weeks
+          The image below represents a user's life expectancy in weeks, using filled boxes to represent the weeks
           that have already passed and empty boxes to represent the weeks that are still to come. By looking at the
           number of filled
-          and empty boxes, we can see how much time has already passed and how much is still ahead of us, based on our
-          life expectancy.
+          and empty boxes, we can see how much time is still ahead of us based on our
+          life expectancy.<br /><br />
           This visualization serves as a reminder to make the most of every day, as we never know when our time will run
           out. This allows us to visualize the concept of memento mori,
           a reminder to live each day as if it were our last.
         </v-card-text>
       </v-card>
-      <v-row>
-        <ChartComponent/>
-      </v-row>
+    </v-section>
       <v-row>
         <v-spacer></v-spacer>
         <v-col class="col-md-8 col-lg-10">
@@ -135,8 +135,8 @@ export default {
 </script>
 
 <style>
-* {
-  font-family: 'Merriweather', serif;
+*{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
 .rt-cards {

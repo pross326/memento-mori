@@ -1,6 +1,5 @@
 <template>
   <div>
-    <transition name="fade">
       <component
       @handleSubmit="getFormData"
         :is="currentComponent"
@@ -8,13 +7,14 @@
         :birthDate="birthDate"
         :lifeExpectancy="lifeExpectancy"
       ></component>
-    </transition>
+      <footerComponent/>
   </div>
 </template>
 
 <script>
 import displayComponent from "./displayComponent.vue";
 import enterData from "./enterData.vue";
+import footerComponent from './footerComponent.vue'
 
 export default {
   name: "switcherComponent",
@@ -38,17 +38,13 @@ export default {
     }
     
   },
-  components: { displayComponent, enterData },
+  components: { displayComponent, enterData, footerComponent },
 };
 </script>
 
 <style>
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.8s ease-in-out;
-}
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+
+*{
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 </style>
