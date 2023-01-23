@@ -21,41 +21,53 @@
           height="200"
           class="align-center d-flex justify-space-around pt-2"
         >
-        <v-card class="summary-card">
-          <v-card-subtitle class="align-center d-flex flex-column pt-5 text-center" style="color: white">
-            You have been alive for
-          </v-card-subtitle>
-          <v-card-title class="align-center d-flex flex-column text-center">
-            {{ this.ageCalculator }}
-          </v-card-title>
-        </v-card>
+          <v-card class="summary-card">
+            <v-card-subtitle
+              class="align-center d-flex flex-column pt-5 text-center"
+              style="color: white"
+            >
+              You have been alive for
+            </v-card-subtitle>
+            <v-card-title class="align-center d-flex flex-column text-center">
+              {{ this.ageCalculator }}
+            </v-card-title>
+          </v-card>
 
-        <v-card class="summary-card">
-          <v-card-subtitle class="align-center d-flex flex-column pt-5 text-center" style="color: white">
-            That's
-          </v-card-subtitle>
-          <v-card-title class="align-center d-flex flex-column">
-            {{ this.weekCalculator.toLocaleString() }} weeks
-          </v-card-title>
-        </v-card>
+          <v-card class="summary-card">
+            <v-card-subtitle
+              class="align-center d-flex flex-column pt-5 text-center"
+              style="color: white"
+            >
+              That's
+            </v-card-subtitle>
+            <v-card-title class="align-center d-flex flex-column">
+              {{ this.weekCalculator.toLocaleString() }} weeks
+            </v-card-title>
+          </v-card>
 
-        <v-card class="summary-card">
-          <v-card-subtitle class="align-center d-flex flex-column pt-5 text-center" style="color: white">
-            If you were to live {{this.lifeExpectancy}} years, you'd have
-          </v-card-subtitle>
-          <v-card-title class="align-center d-flex flex-column">
-            {{this.weeksRemaining.toLocaleString()}} weeks left
-          </v-card-title>
-        </v-card>
+          <v-card class="summary-card">
+            <v-card-subtitle
+              class="align-center d-flex flex-column pt-5 text-center"
+              style="color: white"
+            >
+              If you were to live {{ this.lifeExpectancy }} years, you'd have
+            </v-card-subtitle>
+            <v-card-title class="align-center d-flex flex-column">
+              {{ this.weeksRemaining.toLocaleString() }} weeks left
+            </v-card-title>
+          </v-card>
 
-        <v-card class="summary-card">
-          <v-card-subtitle class="align-center d-flex flex-column pt-5" style="color: white">
-            That means you've already lived
-          </v-card-subtitle>
-          <v-card-title class="align-center d-flex flex-column">
-            {{this.getPercentage}}% of your life
-          </v-card-title>
-        </v-card>
+          <v-card class="summary-card">
+            <v-card-subtitle
+              class="align-center d-flex flex-column pt-5"
+              style="color: white"
+            >
+              That means you've already lived
+            </v-card-subtitle>
+            <v-card-title class="align-center d-flex flex-column">
+              {{ this.getPercentage }}% of your life
+            </v-card-title>
+          </v-card>
         </v-card>
       </v-window-item>
     </v-window>
@@ -114,12 +126,24 @@ export default {
       ];
     },
   },
-  // mounted() {
-  //   // Switch to the next slide every 5 seconds
-  //   this.interval = setInterval(() => {
-  //     this.currentSlide = (this.currentSlide + 1) % (this.windowItems.length + 1);
-  //   }, 5000);
-  // },
+  mounted() {
+    // Switch to the next slide every 5 seconds
+    this.interval = setInterval(() => {
+      this.currentSlide =
+        (this.currentSlide + 1) % (this.windowItems.length + 1);
+      if (this.currentSlide === 4) {
+        clearInterval(this.interval); // stop the interval
+        setTimeout(() => {
+          // wait 10 seconds
+          this.interval = setInterval(() => {
+            // start the interval again
+            this.currentSlide =
+              (this.currentSlide + 1) % (this.windowItems.length + 1);
+          }, 5000);
+        }, 10000);
+      }
+    }, 5000);
+  },
 
   methods: {
     next() {
@@ -134,7 +158,8 @@ export default {
       clearInterval(this.interval);
       setTimeout(() => {
         setInterval(() => {
-          this.currentSlide = (this.currentSlide + 1) % (this.windowItems.length + 1);
+          this.currentSlide =
+            (this.currentSlide + 1) % (this.windowItems.length + 1);
         }, 50000);
       }, 10000);
     },
@@ -165,8 +190,8 @@ export default {
 </script>
 
 <style>
-
-.summary-card{
+.summary-card {
   height: 10em;
   width: 20em;
-}</style>
+}
+</style>
