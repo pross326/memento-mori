@@ -24,7 +24,7 @@
           class="align-center d-flex justify-space-around pt-2 window-background"
           v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
         >
-          <v-card class="summary-card">
+          <v-card class="summary-card mx-2">
             <v-card-subtitle
               class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
@@ -35,7 +35,7 @@
             </v-card-title>
           </v-card>
 
-          <v-card class="summary-card">
+          <v-card class="summary-card mx-2">
             <v-card-subtitle
               class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
@@ -46,7 +46,7 @@
             </v-card-title>
           </v-card>
 
-          <v-card class="summary-card">
+          <v-card class="summary-card mx-2">
             <v-card-subtitle
               class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
@@ -57,9 +57,9 @@
             </v-card-title>
           </v-card>
 
-          <v-card class="summary-card">
+          <v-card class="summary-card mx-2">
             <v-card-subtitle
-              class="summary-card-title align-center d-flex flex-column pt-5"
+              class="summary-card-title align-center d-flex flex-column pt-5 text-center"
             >
               That means you've already lived
             </v-card-subtitle>

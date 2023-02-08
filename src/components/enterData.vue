@@ -2,7 +2,7 @@
   <div>
     <v-row class="justify-center grey darken-4">
       <v-card
-        class="col-xs-10 col-sm-10 col-xl-8 justify-center align-center d-flex flex-column text-center" color="#212121" elevation="0"
+        class="col-xs-12 col-sm-10 col-xl-8 justify-center align-center d-flex flex-column text-center" color="#212121" elevation="0"
       >
         <v-card-text id="enterDataIntro" class="text-overline white--text">
           Enter your birth date and life expectancy below for a visual reminder
@@ -39,11 +39,11 @@
                 class="d-flex flex-column align-center mb-5 enterDataCard"
                 v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
-              <v-col cols="6">
+              <v-col class="col-xs-12 col-md-8 col-lg-8 col-xl-7">
                 <v-card
                   elevation="5"
                   class="justify-center align-center d-flex flex-column pa-0 mt-3"
-                  cols="6"
+                  
                 >
                   <v-card-title> Enter your birth date. </v-card-title>
                   <v-card-subtitle>
@@ -74,7 +74,7 @@
                 class="d-flex flex-column align-center mb-5 enterDataCard"
                 v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
-              <v-col cols="6">
+              <v-col class="col-xs-12 col-md-8 col-lg-8 col-xl-7">
                 <v-card
                   elevation="4"
                   class="justify-center align-center d-flex flex-column pa-0 mt-3"
