@@ -16,7 +16,7 @@
         :series="series"
       ></apexcharts>
       <div class="d-flex justify-end">
-        <v-btn color="#C68F55" class="ma-4" @click="downloadCard()">Share</v-btn>
+        <v-btn color="#C68F55" class="ma-4" @click="downloadCard()">Download</v-btn>
       </div>
     </v-card>
   </div>

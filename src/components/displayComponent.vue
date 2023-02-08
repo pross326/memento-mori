@@ -75,7 +75,7 @@
         </v-col>
         <v-spacer></v-spacer>
       </v-row>
-      <v-btn class="mx-auto my-5" @click="switchComponent()"> Try Again </v-btn>
+      <v-btn class="mx-auto my-5" color="#C68F55"  @click="switchComponent()"> Try Again </v-btn>
     </v-container>
   </div>
 </template>
