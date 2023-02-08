@@ -39,6 +39,7 @@
                 class="d-flex flex-column align-center mb-5 enterDataCard"
                 v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
+              <v-col cols="6">
                 <v-card
                   elevation="5"
                   class="justify-center align-center d-flex flex-column pa-0 mt-3"
@@ -52,12 +53,13 @@
                 </v-card>
                 <v-date-picker
                   elevation="5"
-                  class="d-flex justify-center rounded-lg mb-3 mt-3 col-sm-10 col-lg-5 col-xl-4"
+                  class="d-flex justify-center rounded-lg mb-3 mt-3"
                   @input="picker"
                   v-model="formData.birthDate"
                   header-color="#212121"
                   color="#212121"
                 ></v-date-picker>
+              </v-col>
               </v-card>
               <div class="d-flex justify-center">
                 <v-btn :disabled="dateIsValid" color="#C68F55" @click="e1 = 2">
@@ -72,9 +74,10 @@
                 class="d-flex flex-column align-center mb-5 enterDataCard"
                 v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
+              <v-col cols="6">
                 <v-card
                   elevation="4"
-                  class="col-sm-10 col-lg-5 col-xl-4 justify-center align-center d-flex flex-column pa-0 mt-3"
+                  class="justify-center align-center d-flex flex-column pa-0 mt-3"
                 >
                   <v-card-title> Enter your Life Expectancy. </v-card-title>
                   <v-card-subtitle> (80 Default) </v-card-subtitle>
@@ -82,7 +85,7 @@
                 <v-spacer></v-spacer>
                 <v-card
                   elevation="5"
-                  class="col-sm-10 col-lg-5 col-xl-4 justify-center align-center d-flex flex-column pa-0 mt-3 mb-3"
+                  class="justify-center align-center d-flex flex-column pa-0 mt-3 mb-3"
                 >
                 <v-card id="yearsCardTitle" class="ma-2 pb-5" color="#212121">
                   <v-card-title
@@ -108,6 +111,7 @@
                     >
                   </v-card-text>
                 </v-card>
+                </v-col>
                 <v-spacer></v-spacer>
               </v-card>
               <div class="d-flex justify-center">
