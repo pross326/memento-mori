@@ -43,7 +43,7 @@
                   elevation="5"
                   class="col-xl-5 justify-center align-center d-flex flex-column pa-0 mt-3"
                 >
-                  <v-card-title> Enter your birth date. </v-card-title>
+                  <v-card-title> Enter your birth date! </v-card-title>
                   <v-card-subtitle>
                     Your birth date is used to calculate how many weeks you've
                     lived.
