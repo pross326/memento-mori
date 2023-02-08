@@ -41,7 +41,7 @@
               >
                 <v-card
                   elevation="5"
-                  class="col-xs-10 col-sm-10 col-xl-5 justify-center align-center d-flex flex-column pa-0 mt-3"
+                  class="col-xl-5 justify-center align-center d-flex flex-column pa-0 mt-3"
                 >
                   <v-card-title> Enter your birth date. </v-card-title>
                   <v-card-subtitle>
@@ -51,7 +51,7 @@
                 </v-card>
                 <v-date-picker
                   elevation="5"
-                  class="d-flex justify-center rounded-lg mb-3 mt-3 col-xs-10 col-sm-10 col-xl-5"
+                  class="d-flex justify-center rounded-lg mb-3 mt-3 col-xl-5"
                   @input="picker"
                   v-model="formData.birthDate"
                   header-color="#212121"
