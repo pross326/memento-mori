@@ -39,11 +39,13 @@
                 class="d-flex flex-column align-center mb-5 enterDataCard"
                 v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
+              <v-col>
                 <v-card
                   elevation="5"
-                  class="col-xl-5 justify-center align-center d-flex flex-column pa-0 mt-3"
+                  class="justify-center align-center d-flex flex-column pa-0 mt-3"
+                  cols="6"
                 >
-                  <v-card-title> Enter your birth date! </v-card-title>
+                  <v-card-title> Enter your birth date. </v-card-title>
                   <v-card-subtitle>
                     Your birth date is used to calculate how many weeks you've
                     lived.
@@ -51,12 +53,13 @@
                 </v-card>
                 <v-date-picker
                   elevation="5"
-                  class="d-flex justify-center rounded-lg mb-3 mt-3 col-xl-5"
+                  class="d-flex justify-center rounded-lg mb-3 mt-3 col-xs-10 col-sm-10 col-xl-5"
                   @input="picker"
                   v-model="formData.birthDate"
                   header-color="#212121"
                   color="#212121"
                 ></v-date-picker>
+            </v-col>
               </v-card>
               <div class="d-flex justify-center">
                 <v-btn :disabled="dateIsValid" color="#C68F55" @click="e1 = 2">
