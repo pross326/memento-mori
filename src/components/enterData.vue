@@ -39,7 +39,7 @@
                 class="d-flex flex-column align-center mb-5 enterDataCard"
                 v-bind:style="{ 'background-image': `url(${backgroundImage})` }"
               >
-              <v-col>
+              <v-col cols="6">
                 <v-card
                   elevation="5"
                   class="justify-center align-center d-flex flex-column pa-0 mt-3"
